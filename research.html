@@ -1,0 +1,36 @@
+---
+layout: default
+title: "Research"
+subtitle: "Vulnerability writeups, advisories, and technical notes."
+permalink: /research/
+description: "Technical vulnerability writeups and security advisories by Ali Sherif."
+---
+
+<div class="wrap page">
+  <header class="page-head">
+    <h1 class="page-title">Research</h1>
+    <p class="page-subtitle">Vulnerability writeups, advisories, and technical notes. Newest first.</p>
+  </header>
+
+  {%- if site.posts.size > 0 -%}
+  <div class="card-list">
+    {%- for post in site.posts -%}
+    <a class="card" href="{{ post.url | relative_url }}">
+      <div class="card-meta">
+        {%- if post.severity -%}<span class="badge sev-{{ post.severity | downcase }}">{{ post.severity }}</span>{%- endif -%}
+        {%- if post.status -%}<span class="badge status">{{ post.status }}</span>{%- endif -%}
+        {%- if post.vendor -%}<span>{{ post.vendor }}</span>{%- endif -%}
+        <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+      </div>
+      <h2 class="card-title">{{ post.title }}</h2>
+      {%- if post.subtitle -%}<p class="card-desc">{{ post.subtitle }}</p>{%- endif -%}
+      {%- if post.tags and post.tags != empty -%}
+      <div class="card-tags">{%- for t in post.tags limit: 6 -%}<span class="tag">#{{ t }}</span>{%- endfor -%}</div>
+      {%- endif -%}
+    </a>
+    {%- endfor -%}
+  </div>
+  {%- else -%}
+  <p class="muted">No writeups published yet.</p>
+  {%- endif -%}
+</div>

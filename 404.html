@@ -1,0 +1,26 @@
+---
+layout: default
+title: "404"
+permalink: /404.html
+---
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-term">
+      <div class="term-bar">
+        <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+        <span class="term-title">ali@research: ~</span>
+      </div>
+      <div class="term-body notfound">
+        <p class="term-line"><span class="pr">ali@research</span>:~$ cat {{ page.url | default: "this-page" }}</p>
+        <p class="term-line"><span class="red" style="color:#f85149">cat: {{ page.url }}: No such file or directory</span></p>
+        <h1 class="term-h1">404</h1>
+        <p class="term-role">That path does not resolve. The byte was out of bounds.</p>
+        <p class="term-line"><span class="pr">ali@research</span>:~$ cd /<span class="cursor"></span></p>
+        <div class="hero-actions">
+          <a class="btn primary" href="{{ '/' | relative_url }}">go home</a>
+          <a class="btn" href="{{ '/research/' | relative_url }}">research</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

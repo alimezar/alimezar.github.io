@@ -1,0 +1,63 @@
+# --- Site ---
+title: "Ali Sherif"
+tagline: "Security Engineer & Vulnerability Researcher"
+description: >-
+  Security research, vulnerability writeups, and CVE disclosures by Ali Sherif,
+  Security Engineer at IBM. Memory safety, parser bugs, and bug bounty work.
+author: "Ali Sherif"
+# Public contact and profiles. Edit or remove as you like.
+email: "ali.mezar@gmail.com"
+github_username: "alimezar"
+# twitter_username:
+# linkedin_username:
+# htb_url:
+
+# --- Build / URLs ---
+url: "https://alimezar.github.io"
+baseurl: ""
+permalink: /research/:title/
+timezone: Asia/Riyadh
+
+# --- Markdown / Highlighting ---
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+
+# --- Plugins (all safe-listed on GitHub Pages) ---
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# --- Collections / defaults ---
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+# --- Stats shown on the home page (edit freely) ---
+stats:
+  cves: "5+"
+  halls_of_fame: "5"
+  ctf_wins: "1st + 2nd"
+
+# --- Exclude from build ---
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - .gitignore
+  - "*.gemspec"

@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-prompt">ali@research</span><span class="brand-sep">:</span><span class="brand-path">~</span><span class="brand-caret">$</span>
+      <span class="brand-name">{{ site.title }}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      {%- assign p = page.url -%}
+      <a href="{{ '/research/' | relative_url }}" class="{% if p contains '/research' %}active{% endif %}">research</a>
+      <a href="{{ '/cves/'     | relative_url }}" class="{% if p contains '/cves'     %}active{% endif %}">cves</a>
+      <a href="{{ '/hall-of-fame/' | relative_url }}" class="{% if p contains '/hall-of-fame' %}active{% endif %}">hall&nbsp;of&nbsp;fame</a>
+      <a href="{{ '/about/'    | relative_url }}" class="{% if p contains '/about'    %}active{% endif %}">about</a>
+      {%- if site.github_username -%}
+      <a href="https://github.com/{{ site.github_username }}" class="nav-ext" rel="me noopener" target="_blank">github&nbsp;&#8599;</a>
+      {%- endif -%}
+    </nav>
+  </div>
+</header>

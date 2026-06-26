@@ -1,0 +1,67 @@
+---
+layout: default
+---
+<article class="wrap post">
+  <div class="post-back">
+    <a href="{{ '/research/' | relative_url }}">&#8592; back to research</a>
+  </div>
+
+  <header class="post-head">
+    <div class="badge-row">
+      {%- if page.severity -%}
+      <span class="badge sev-{{ page.severity | downcase }}">{{ page.severity }}</span>
+      {%- endif -%}
+      {%- if page.status -%}
+      <span class="badge status">{{ page.status }}</span>
+      {%- endif -%}
+      {%- if page.vuln_class -%}
+      <span class="badge class">{{ page.vuln_class }}</span>
+      {%- endif -%}
+    </div>
+
+    <h1 class="post-title">{{ page.title }}</h1>
+    {%- if page.subtitle -%}
+    <p class="post-subtitle">{{ page.subtitle }}</p>
+    {%- endif -%}
+
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span class="dot">&middot;</span>
+      <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      {%- if page.author -%}<span class="dot">&middot;</span><span>{{ page.author }}</span>{%- endif -%}
+    </div>
+
+    {%- if page.vendor or page.product or page.references -%}
+    <dl class="report-facts">
+      {%- if page.vendor -%}<div><dt>Vendor</dt><dd>{{ page.vendor }}</dd></div>{%- endif -%}
+      {%- if page.product -%}<div><dt>Component</dt><dd>{{ page.product }}</dd></div>{%- endif -%}
+      {%- if page.affected -%}<div><dt>Affected</dt><dd>{{ page.affected }}</dd></div>{%- endif -%}
+      {%- if page.fixed_in -%}<div><dt>Fixed in</dt><dd>{{ page.fixed_in }}</dd></div>{%- endif -%}
+      {%- if page.references -%}
+      <div class="facts-refs"><dt>References</dt><dd>
+        {%- for r in page.references -%}
+          {%- if r.url -%}<a href="{{ r.url }}" rel="noopener" target="_blank">{{ r.label }} &#8599;</a>{%- else -%}<span>{{ r.label }}</span>{%- endif -%}{%- unless forloop.last -%}<span class="ref-sep"> </span>{%- endunless -%}
+        {%- endfor -%}
+      </dd></div>
+      {%- endif -%}
+    </dl>
+    {%- endif -%}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {%- if page.tags and page.tags != empty -%}
+  <div class="post-tags">
+    {%- for tag in page.tags -%}<span class="tag">#{{ tag }}</span>{%- endfor -%}
+  </div>
+  {%- endif -%}
+
+  <footer class="post-foot">
+    <a href="{{ '/research/' | relative_url }}">&#8592; all research</a>
+    {%- if site.github_username -%}
+    <a href="https://github.com/{{ site.github_username }}" rel="me noopener" target="_blank">more on github &#8599;</a>
+    {%- endif -%}
+  </footer>
+</article>

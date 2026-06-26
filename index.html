@@ -1,0 +1,71 @@
+---
+layout: default
+title: "Ali Sherif // Security Research"
+description: "Security Engineer at IBM and vulnerability researcher. CVEs, bug bounty hall-of-fame entries, and deep technical writeups on memory safety and parser bugs."
+---
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-term">
+      <div class="term-bar">
+        <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+        <span class="term-title">ali@research: ~</span>
+      </div>
+      <div class="term-body">
+        <p class="term-line"><span class="pr">ali@research</span>:~$ whoami</p>
+        <h1 class="term-h1">Ali Sherif</h1>
+        <p class="term-role"><span class="hl">Security Engineer @ IBM</span>, vulnerability researcher</p>
+
+        <p class="term-line"><span class="pr">ali@research</span>:~$ cat focus.txt</p>
+        <p class="term-line">&gt; memory safety, deserialization &amp; parser bugs</p>
+        <p class="term-line">&gt; bug bounty, CVE research, CTF</p>
+
+        <p class="term-line"><span class="pr">ali@research</span>:~$ ls latest/<span class="cursor"></span></p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="{{ '/research/' | relative_url }}">read research</a>
+          <a class="btn" href="{{ '/cves/' | relative_url }}">view cves</a>
+          <a class="btn" href="{{ '/hall-of-fame/' | relative_url }}">hall of fame</a>
+          {%- if site.github_username -%}
+          <a class="btn" href="https://github.com/{{ site.github_username }}" rel="me noopener" target="_blank">github &#8599;</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><div class="n">{{ site.stats.cves }}</div><div class="l">confirmed CVEs</div></div>
+    <div class="stat"><div class="n">{{ site.stats.halls_of_fame }}</div><div class="l">halls of fame</div></div>
+    <div class="stat"><div class="n">{{ site.stats.ctf_wins }}</div><div class="l">CTF finishes</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">merged fix @ Google</div></div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>latest research</h2>
+      <a href="{{ '/research/' | relative_url }}">all writeups &#8594;</a>
+    </div>
+
+    <div class="card-list">
+      {%- for post in site.posts limit: 4 -%}
+      <a class="card" href="{{ post.url | relative_url }}">
+        <div class="card-meta">
+          {%- if post.severity -%}<span class="badge sev-{{ post.severity | downcase }}">{{ post.severity }}</span>{%- endif -%}
+          {%- if post.status -%}<span class="badge status">{{ post.status }}</span>{%- endif -%}
+          <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+        </div>
+        <h3 class="card-title">{{ post.title }}</h3>
+        {%- if post.subtitle -%}<p class="card-desc">{{ post.subtitle }}</p>{%- endif -%}
+        {%- if post.tags and post.tags != empty -%}
+        <div class="card-tags">{%- for t in post.tags limit: 5 -%}<span class="tag">#{{ t }}</span>{%- endfor -%}</div>
+        {%- endif -%}
+      </a>
+      {%- else -%}
+      <p class="muted">No writeups published yet. Check back soon.</p>
+      {%- endfor -%}
+    </div>
+  </section>
+
+</div>

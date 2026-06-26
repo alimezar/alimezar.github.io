@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------------------
+# Hall of Fame / bug bounty recognitions. Each entry renders as a card on
+# /hall-of-fame/. The organizations below are real; fill in the optional
+# details (report count, year, public HoF link) when you have them.
+# Fields:
+#   org   - organization name
+#   note  - short summary of what was recognized
+#   count - number of reports/acknowledgements (optional, e.g. "3 reports")
+#   year  - year or range (optional)
+#   url   - link to the public hall-of-fame page (optional)
+# ---------------------------------------------------------------------------
+
+- org: "Google"
+  note: "Multiple reports, including a merged security fix in FlatBuffers (Swift runtime)."
+  count: ""
+  year: ""
+  url: "https://bughunters.google.com/"
+
+- org: "Apple"
+  note: "Acknowledged for reported security issue(s)."
+  count: ""
+  year: ""
+  url: "https://security.apple.com/research/"
+
+- org: "Cloudflare"
+  note: "Acknowledged for reported security issue(s)."
+  count: ""
+  year: ""
+  url: ""
+
+- org: "IBM"
+  note: "Acknowledged for reported security issue(s)."
+  count: ""
+  year: ""
+  url: ""
+
+- org: "BlackBerry"
+  note: "Acknowledged for reported security issue(s)."
+  count: ""
+  year: ""
+  url: ""

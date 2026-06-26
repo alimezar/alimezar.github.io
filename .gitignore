@@ -1,0 +1,20 @@
+# Jekyll build output and caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Bundler
+Gemfile.lock
+vendor/
+.bundle/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Held content, not for publishing yet (FlatBuffers writeup + assets)
+_held/

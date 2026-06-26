@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------------------
+# Confirmed CVEs. Each entry renders as a row on /cves/.
+# Details below were sourced from the official MITRE CVE records.
+# Ordered by severity (Critical first). Add new rows as more are published.
+# Fields: id, title, vendor, product, severity, year, status, url, writeup
+# ---------------------------------------------------------------------------
+
+- id: "CVE-2026-30893"
+  title: "Path traversal in cluster sync allows arbitrary file write and code execution"
+  vendor: "Wazuh"
+  product: "Wazuh (cluster synchronization)"
+  severity: "Critical"
+  year: 2026
+  status: "Disclosed"
+  url: "https://www.cve.org/CVERecord?id=CVE-2026-30893"
+  writeup: ""
+
+- id: "CVE-2026-4870"
+  title: "Uncontrolled recursion in the Qiskit OpenQASM 2 parser (denial of service)"
+  vendor: "IBM"
+  product: "IBM Qiskit SDK (qasm2 parser)"
+  severity: "High"
+  year: 2026
+  status: "Disclosed"
+  url: "https://www.cve.org/CVERecord?id=CVE-2026-4870"
+  writeup: ""
+
+- id: "CVE-2026-28221"
+  title: "Pre-auth stack buffer overflow in wazuh-remoted print_hex_string()"
+  vendor: "Wazuh"
+  product: "Wazuh (wazuh-remoted)"
+  severity: "Medium"
+  year: 2026
+  status: "Disclosed"
+  url: "https://www.cve.org/CVERecord?id=CVE-2026-28221"
+  writeup: ""
+
+- id: "CVE-2026-26206"
+  title: "API brute-force protection bypass via authentication race condition"
+  vendor: "Wazuh"
+  product: "Wazuh (server API)"
+  severity: "Medium"
+  year: 2026
+  status: "Disclosed"
+  url: "https://www.cve.org/CVERecord?id=CVE-2026-26206"
+  writeup: ""
+
+- id: "CVE-2026-27199"
+  title: "safe_join() accepts Windows device names, hanging send_from_directory"
+  vendor: "Pallets"
+  product: "Werkzeug (safe_join)"
+  severity: "Medium"
+  year: 2026
+  status: "Disclosed"
+  url: "https://www.cve.org/CVERecord?id=CVE-2026-27199"
+  writeup: ""
