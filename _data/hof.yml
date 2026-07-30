@@ -1,41 +1,60 @@
 # ---------------------------------------------------------------------------
-# Hall of Fame / bug bounty recognitions. Each entry renders as a card on
-# /hall-of-fame/. The organizations below are real; fill in the optional
-# details (report count, year, public HoF link) when you have them.
+# Hall of Fame / vendor recognitions. Each entry renders as a card on
+# /hall-of-fame/.
 # Fields:
 #   org   - organization name
 #   note  - short summary of what was recognized
+#   with  - co-reporter credited on the same report (optional, plain text)
 #   count - number of reports/acknowledgements (optional, e.g. "3 reports")
 #   year  - year or range (optional)
-#   url   - link to the public hall-of-fame page (optional)
+#   url   - link to the public acknowledgement page (optional)
 # ---------------------------------------------------------------------------
 
-- org: "Google"
-  note: "Multiple reports, including a merged security fix in FlatBuffers (Swift runtime)."
+- org: "Amazon Web Services"
+  note: "Acknowledged for reporting a medium severity vulnerability."
+  with: ""
   count: ""
   year: ""
-  url: "https://bughunters.google.com/"
+  url: ""
 
 - org: "Apple"
-  note: "Acknowledged for reported security issue(s)."
-  count: ""
+  note: "Security researcher recognition for multiple reported vulnerabilities."
+  with: ""
+  count: "multiple reports"
   year: ""
-  url: "https://security.apple.com/research/"
-
-- org: "Cloudflare"
-  note: "Acknowledged for reported security issue(s)."
-  count: ""
-  year: ""
-  url: ""
-
-- org: "IBM"
-  note: "Acknowledged for reported security issue(s)."
-  count: ""
-  year: ""
-  url: ""
+  url: "https://security.apple.com"
 
 - org: "BlackBerry"
-  note: "Acknowledged for reported security issue(s)."
+  note: "Acknowledged by the Product Security team for a medium severity vulnerability, CVSS 5.4, in one of their products."
+  with: ""
   count: ""
   year: ""
-  url: ""
+  url: "https://www.blackberry.com/us/en/services/blackberry-product-security-incident-response"
+
+- org: "Cloudflare"
+  note: "Acknowledged on HackerOne for a valid vulnerability report."
+  with: "Momen Ashraf"
+  count: ""
+  year: "2026"
+  url: "https://hackerone.com/cloudflare/thanks/2026"
+
+- org: "Google"
+  note: "Acknowledged for several reported vulnerabilities, including an XSS in Go's html/template and a fix merged into FlatBuffers (Swift runtime)."
+  with: ""
+  count: "several reports"
+  year: ""
+  url: "https://bughunters.google.com/leaderboard/honorable-mentions"
+
+- org: "IBM"
+  note: "Acknowledged on HackerOne for a reported vulnerability."
+  with: ""
+  count: ""
+  year: "2026"
+  url: "https://hackerone.com/ibm/thanks/2026?type=team"
+
+- org: "Mapbox"
+  note: "Acknowledged on HackerOne for a high severity vulnerability, a heap out-of-bounds write in node-fontnik rated CVSS 8.1."
+  with: ""
+  count: ""
+  year: "2026"
+  url: "https://github.com/mapbox/node-fontnik/security/advisories/GHSA-cfm6-c7rv-58xj"

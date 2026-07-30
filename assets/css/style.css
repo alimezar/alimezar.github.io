@@ -158,6 +158,7 @@ img, svg { max-width: 100%; height: auto; }
 .card .card-title { font-family: var(--font-mono); font-size: 1.02rem; color: #e7eef6; margin: 0 0 .35rem; line-height: 1.35; }
 .card:hover .card-title { color: var(--green); }
 .card .card-desc { color: var(--text-dim); font-size: .92rem; margin: 0; }
+.card .card-sub { margin: .45rem 0 0; font-family: var(--font-mono); font-size: .78rem; color: var(--text-faint); }
 .card .card-tags { margin-top: .6rem; display: flex; gap: .4rem; flex-wrap: wrap; }
 
 /* ---------- badges / tags ---------- */
@@ -175,6 +176,8 @@ img, svg { max-width: 100%; height: auto; }
    PAGES & PROSE
    ================================================================= */
 .page, .post { max-width: var(--prose); }
+/* pages that are mostly tabular data get the full grid width instead of the prose column */
+.page.wide { max-width: var(--maxw); }
 .page-head, .post-head { margin-bottom: 2rem; }
 .page-title { font-size: clamp(1.5rem, 4vw, 2rem); margin: 0 0 .4rem; }
 .page-title::before { content: "# "; color: var(--green); }
@@ -237,6 +240,15 @@ img, svg { max-width: 100%; height: auto; }
 .prose th, .prose td { text-align: left; padding: .55rem .8rem; border: 1px solid var(--border); }
 .prose th { background: var(--surface-2); font-family: var(--font-mono); font-size: .8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .02em; }
 .prose tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+
+/* wide data tables (CVE list): scroll the wrapper, never wrap an identifier */
+.table-scroll { overflow-x: auto; margin: 1.4rem 0; }
+.prose .table-scroll > table { display: table; margin: 0; min-width: 42rem; }
+.cve-table td.cve-id { font-family: var(--font-mono); font-size: .84rem; white-space: nowrap; }
+.cve-table td.cve-vendor, .cve-table td.cve-year { white-space: nowrap; }
+.cve-table td.cve-year { font-family: var(--font-mono); font-size: .84rem; color: var(--text-dim); }
+.cve-table tr.pending td { color: var(--text-faint); font-style: italic; }
+.cve-table tr.pending td.cve-id, .cve-table tr.pending td.cve-vendor { font-style: normal; color: var(--text-dim); }
 
 /* post footer / tags */
 .post-tags { margin-top: 2.5rem; display: flex; gap: .5rem; flex-wrap: wrap; }

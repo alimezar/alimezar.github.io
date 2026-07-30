@@ -3,7 +3,8 @@ title: "Ali Sherif"
 tagline: "Security Engineer & Vulnerability Researcher"
 description: >-
   Security research, vulnerability writeups, and CVE disclosures by Ali Sherif,
-  Security Engineer at IBM. Memory safety, parser bugs, and bug bounty work.
+  Security Engineer at IBM. Bug bounty work across cloud services, web
+  applications, and open source infrastructure.
 author: "Ali Sherif"
 # Public contact and profiles. Edit or remove as you like.
 email: "ali.mezar@gmail.com"
@@ -49,9 +50,9 @@ defaults:
 
 # --- Stats shown on the home page (edit freely) ---
 stats:
-  cves: "5+"
-  halls_of_fame: "5"
-  ctf_wins: "1st + 2nd"
+  cves: "10"
+  halls_of_fame: "7"
+  ctf_wins: "1st"
 
 # --- Exclude from build ---
 exclude:

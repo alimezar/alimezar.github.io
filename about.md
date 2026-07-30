@@ -7,30 +7,37 @@ description: "Ali Sherif, Security Engineer at IBM and vulnerability researcher.
 ---
 
 I am **Ali Sherif**, a Security Engineer at **IBM** and an independent vulnerability
-researcher. My work centers on finding and responsibly disclosing memory safety and
-parsing flaws in widely used software, then writing them up so others can learn from
-the root cause, not just the patch.
+researcher. I look for the places where software trusts input it has no business
+trusting, then write the finding up so the root cause is clear, not just the diff that
+fixed it.
 
-## What I focus on
+I do not have one favorite bug class. My reports range from a blind SSRF in an OAuth
+avatar fetch to a stack overflow caused by a signed char, and the only thing they
+really have in common is someone deciding a value was safe before checking.
 
-- **Memory safety**: out-of-bounds reads and writes, type confusion, and the gap
-  between what a verifier checks and what generated code actually does.
-- **Deserialization and parsers**: serialization frameworks, binary formats, and the
-  trust boundaries around "validated" input.
+## What I work on
+
+- **Web and application security**: SSRF, path traversal, authentication and
+  authorization logic, and the assumptions that hold up fine until someone sends two
+  requests at the same time.
+- **Cloud and infrastructure**: distributed agents, cluster protocols, and the CLI
+  tooling that quietly writes your credentials to disk.
+- **Parsers, deserialization, and memory safety**: binary formats, verifiers, and the
+  gap between what a check promises and what the generated code actually does.
 - **Bug bounty and coordinated disclosure**: reporting through vendor programs and
-  working with maintainers until a fix ships.
-- **CTF and HackTheBox**: keeping the offensive skill set sharp on a regular basis.
+  staying with it until a fix actually ships.
+- **CTF and HackTheBox**: keeping the offensive side sharp on a regular basis.
 
 ## Track record
 
-- **5+ confirmed CVEs**, with additional identifiers assigned but not yet publicly
-  disclosed.
-- **Hall of Fame recognition** from Google, Apple, Cloudflare, IBM, and BlackBerry
-  across multiple reports.
-- A **merged security fix in Google FlatBuffers** (Swift runtime). A detailed
-  writeup is coming soon.
-- **CTF**: multiple competition entries, including one first place finish and one
-  second place finish.
+- **10 assigned CVEs** across Google, AWS, IBM, Mapbox, Wazuh, Werkzeug and Gitea,
+  including an XSS in Go's `html/template` and a critical path traversal to code
+  execution in Wazuh's cluster sync.
+- **Hall of Fame recognition** from Google, Apple, AWS, Cloudflare, IBM, BlackBerry
+  and Mapbox.
+- A **merged security fix in Google FlatBuffers** (Swift runtime). The writeup is
+  written, it is just not public yet.
+- **First place at ICMTC CTF 2026** and **second place at ICMTC CTF 2025**.
 - Active on **HackTheBox**, solving machines on an ongoing basis.
 
 See the [CVEs](/cves/) and [Hall of Fame](/hall-of-fame/) pages for the breakdown,

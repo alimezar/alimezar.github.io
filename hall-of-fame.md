@@ -3,11 +3,13 @@ layout: page
 title: "Hall of Fame"
 subtitle: "Vendor recognitions for reported security issues."
 permalink: /hall-of-fame/
-description: "Bug bounty hall-of-fame recognitions earned by Ali Sherif across Google, Apple, Cloudflare, IBM, and BlackBerry."
+description: "Bug bounty hall-of-fame recognitions earned by Ali Sherif across Google, Apple, AWS, Cloudflare, IBM, BlackBerry and Mapbox."
 ---
 
-Recognition from vendor security programs for responsibly disclosed issues, plus a
-merged upstream fix. Each report was handled through coordinated disclosure.
+Seven vendor programs have put my name on a page after I told them something they
+would rather not have heard. Every report below went through coordinated disclosure,
+which mostly means waiting patiently while a fix works its way through someone else's
+release process.
 
 <div class="card-list" style="margin-top:1.5rem;">
 {%- for h in site.data.hof -%}
@@ -22,12 +24,16 @@ merged upstream fix. Each report was handled through coordinated disclosure.
     </div>
     <h2 class="card-title">{{ h.org }}</h2>
     <p class="card-desc">{{ h.note }}</p>
+    {%- if h.with and h.with != "" -%}<p class="card-sub">joint report with {{ h.with }}</p>{%- endif -%}
   {%- if h.url and h.url != "" -%}</a>{%- else -%}</div>{%- endif -%}
 {%- endfor -%}
 </div>
 
+The Cloudflare report was joint work with my friend and fellow researcher
+[Momen Ashraf](https://www.linkedin.com/in/momenashrafff/).
+
 ## Upstream fix
 
-Beyond program acknowledgements, one finding resulted in a security patch merged
-directly into a Google open source project, FlatBuffers (Swift runtime). A detailed
-technical writeup is coming soon.
+One finding did better than an acknowledgement and turned into a security patch
+merged directly into a Google open source project, FlatBuffers (Swift runtime). A
+detailed writeup is coming once the paperwork around it is done.

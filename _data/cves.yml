@@ -1,18 +1,49 @@
 # ---------------------------------------------------------------------------
 # Confirmed CVEs. Each entry renders as a row on /cves/.
-# Details below were sourced from the official MITRE CVE records.
-# Ordered by severity (Critical first). Add new rows as more are published.
-# Fields: id, title, vendor, product, severity, year, status, url, writeup
+# Titles, severities and affected versions below were taken from the official
+# CVE records (cveawg.mitre.org) or the vendor advisory, not from memory.
+# Order is manual: the Go html/template XSS is pinned first while it waits for a
+# rating, the rest run Critical down to Low, embargoed entries at the very bottom.
+# Fields: id, title, vendor, product, severity, year, url, writeup, pending
+#   severity - Critical | High | Medium | Low, or empty when nobody has rated it
+#   pending  - true for reserved IDs with no public record yet (renders muted,
+#              leave url empty so the ID is not linked anywhere)
 # ---------------------------------------------------------------------------
+
+- id: "CVE-2026-56858"
+  title: "Wrong JavaScript regexp context tracking in html/template allows XSS"
+  vendor: "Google"
+  product: "Go standard library (html/template)"
+  severity: ""
+  year: 2026
+  url: "https://github.com/golang/go/issues/80435"
+  writeup: ""
 
 - id: "CVE-2026-30893"
   title: "Path traversal in cluster sync allows arbitrary file write and code execution"
   vendor: "Wazuh"
-  product: "Wazuh (cluster synchronization)"
+  product: "Wazuh (cluster sync, decompress_files)"
   severity: "Critical"
   year: 2026
-  status: "Disclosed"
   url: "https://www.cve.org/CVERecord?id=CVE-2026-30893"
+  writeup: ""
+
+- id: "CVE-2026-28220"
+  title: "Cluster DAPI deserializes attacker-chosen callables and accepts an injected RBAC context"
+  vendor: "Wazuh"
+  product: "Wazuh (cluster Distributed API)"
+  severity: "High"
+  year: 2026
+  url: "https://www.cve.org/CVERecord?id=CVE-2026-28220"
+  writeup: ""
+
+- id: "CVE-2026-63660"
+  title: "Integer overflow in RenderSDF() allows a heap out-of-bounds write via a crafted font"
+  vendor: "Mapbox"
+  product: "node-fontnik (RenderSDF), fixed in 0.7.7"
+  severity: "High"
+  year: 2026
+  url: "https://github.com/mapbox/node-fontnik/security/advisories/GHSA-cfm6-c7rv-58xj"
   writeup: ""
 
 - id: "CVE-2026-4870"
@@ -21,18 +52,7 @@
   product: "IBM Qiskit SDK (qasm2 parser)"
   severity: "High"
   year: 2026
-  status: "Disclosed"
   url: "https://www.cve.org/CVERecord?id=CVE-2026-4870"
-  writeup: ""
-
-- id: "CVE-2026-28221"
-  title: "Pre-auth stack buffer overflow in wazuh-remoted print_hex_string()"
-  vendor: "Wazuh"
-  product: "Wazuh (wazuh-remoted)"
-  severity: "Medium"
-  year: 2026
-  status: "Disclosed"
-  url: "https://www.cve.org/CVERecord?id=CVE-2026-28221"
   writeup: ""
 
 - id: "CVE-2026-26206"
@@ -41,16 +61,41 @@
   product: "Wazuh (server API)"
   severity: "Medium"
   year: 2026
-  status: "Disclosed"
   url: "https://www.cve.org/CVERecord?id=CVE-2026-26206"
+  writeup: ""
+
+- id: "CVE-2026-28221"
+  title: "Pre-auth stack buffer overflow in wazuh-remoted print_hex_string()"
+  vendor: "Wazuh"
+  product: "Wazuh (wazuh-remoted)"
+  severity: "Medium"
+  year: 2026
+  url: "https://www.cve.org/CVERecord?id=CVE-2026-28221"
   writeup: ""
 
 - id: "CVE-2026-27199"
   title: "safe_join() accepts Windows device names, hanging send_from_directory"
-  vendor: "Pallets"
+  vendor: "Werkzeug"
   product: "Werkzeug (safe_join)"
   severity: "Medium"
   year: 2026
-  status: "Disclosed"
   url: "https://www.cve.org/CVERecord?id=CVE-2026-27199"
+  writeup: ""
+
+- id: "CVE-2026-13769"
+  title: "World-readable credential files written by several AWS CLI subcommands"
+  vendor: "AWS"
+  product: "AWS CLI (v1 and v2)"
+  severity: "Medium"
+  year: 2026
+  url: "https://www.cve.org/CVERecord?id=CVE-2026-13769"
+  writeup: ""
+
+- id: "CVE-2026-23603"
+  title: "Blind SSRF in OAuth2 avatar sync via an unvalidated OIDC picture claim"
+  vendor: "Gitea"
+  product: "Gitea (OAuth2 avatar synchronization)"
+  severity: "Low"
+  year: 2026
+  url: "https://github.com/go-gitea/gitea/security/advisories/GHSA-x77v-q46j-393g"
   writeup: ""
