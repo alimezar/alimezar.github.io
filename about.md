@@ -49,6 +49,3 @@ The best way to reach me about a security issue, a finding, or collaboration:
 
 - GitHub: [@alimezar](https://github.com/alimezar)
 - Email: [ali.mezar@gmail.com](mailto:ali.mezar@gmail.com)
-
-For sensitive reports, reach out first and I will share a way to exchange details
-securely.
