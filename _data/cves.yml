@@ -1,101 +1,248 @@
-# ---------------------------------------------------------------------------
-# Confirmed CVEs. Each entry renders as a row on /cves/.
-# Titles, severities and affected versions below were taken from the official
-# CVE records (cveawg.mitre.org) or the vendor advisory, not from memory.
-# Order is manual: the Go html/template XSS is pinned first while it waits for a
-# rating, the rest run Critical down to Low, embargoed entries at the very bottom.
-# Fields: id, title, vendor, product, severity, year, url, writeup, pending
-#   severity - Critical | High | Medium | Low, or empty when nobody has rated it
-#   pending  - true for reserved IDs with no public record yet (renders muted,
-#              leave url empty so the ID is not linked anywhere)
-# ---------------------------------------------------------------------------
-
-- id: "CVE-2026-56858"
-  title: "Wrong JavaScript regexp context tracking in html/template allows XSS"
-  vendor: "Google"
-  product: "Go standard library (html/template)"
+# Publicly attributable CVEs. The assignment total lives in _config.yml.
+# Reviewed 2026-10-18 against CVEProject/cvelistV5 CNA/ADP records and vendor
+# advisories. CVE-2026-78665 is sourced from golang/go#81285; a CVE record,
+# release version, and rating were not available, so those details are omitted.
+# CVE-2026-63660 retains the existing Mapbox advisory details.
+# Prefer CNA CVSS 3.1, then CNA 4.0; identify any ADP rating explicitly.
+# Fields include summary, affected, fixed_in, status, score, cvss_version,
+# score_source, published, record_url, and featured. No private report details.
+- id: CVE-2026-78663
+  title: Double flow-control refund in HTTP/2 server streams
+  vendor: Google
+  product: Go net/http and golang.org/x/net/http2
+  severity: Critical
+  year: 2026
+  url: https://pkg.go.dev/vuln/GO-2026-6612
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-78663
+  writeup: ""
+  summary:
+    A reset stream and its request handler can refund the same data twice, bypassing the connection-level
+    receive-buffer limit. Stream-level and concurrent-stream limits still apply.
+  affected: Go before 1.26.9; Go 1.27 before 1.27.2; x/net before v0.60.0
+  fixed_in: Go 1.26.9, 1.27.2; x/net v0.60.0
+  status: Fixed
+  score: 9.1
+  cvss_version: "3.1"
+  score_source: CISA-ADP
+  published: "2026-10-08"
+  featured: true
+- id: CVE-2026-30893
+  title: Path traversal in cluster sync allows arbitrary file write and code execution
+  vendor: Wazuh
+  product: Wazuh (cluster sync, decompress_files)
+  severity: Critical
+  year: 2026
+  url: https://github.com/wazuh/wazuh/security/advisories/GHSA-m8rw-v4f6-8787
+  writeup: ""
+  summary:
+    An authenticated cluster peer can escape the synchronization extraction directory, overwrite
+    files, and execute code in the Wazuh service context.
+  affected: Wazuh 4.4.0 through versions before 4.14.4
+  fixed_in: Wazuh 4.14.4
+  status: Fixed
+  featured: true
+  published: "2026-04-29"
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-30893
+  score: 9
+  cvss_version: "3.1"
+  score_source: GitHub_M
+- id: CVE-2026-28220
+  title: Cluster DAPI deserializes attacker-chosen callables and accepts an injected RBAC context
+  vendor: Wazuh
+  product: Wazuh (cluster Distributed API)
+  severity: High
+  year: 2026
+  url: https://github.com/wazuh/wazuh/security/advisories/GHSA-w2jj-pfq9-mh9p
+  writeup: ""
+  summary:
+    A peer authenticated to the cluster channel can select a callable and inject an RBAC context,
+    allowing privileged actions on the master node.
+  affected: Wazuh 4.0.0 through versions before 4.14.5
+  fixed_in: Wazuh 4.14.5
+  status: Fixed
+  published: "2026-07-20"
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-28220
+  score: 8.4
+  cvss_version: "3.1"
+  score_source: GitHub_M
+- id: CVE-2026-63660
+  title: Integer overflow in RenderSDF() allows a heap out-of-bounds write via a crafted font
+  vendor: Mapbox
+  product: node-fontnik (RenderSDF), fixed in 0.7.7
+  severity: High
+  year: 2026
+  url: https://github.com/mapbox/node-fontnik/security/advisories/GHSA-cfm6-c7rv-58xj
+  writeup: ""
+  published: ""
+  summary:
+    An integer overflow in font rendering allows a heap out-of-bounds write when processing a crafted
+    font.
+  fixed_in: node-fontnik 0.7.7
+  status: Fixed
+  score: 8.1
+  cvss_version: "3.1"
+  score_source: Mapbox advisory
+- id: CVE-2026-4870
+  title: Uncontrolled recursion in the Qiskit OpenQASM 2 parser (denial of service)
+  vendor: IBM
+  product: IBM Qiskit SDK (qasm2 parser)
+  severity: High
+  year: 2026
+  url: https://www.ibm.com/support/pages/node/7276123
+  writeup: ""
+  summary:
+    Uncontrolled recursion in the Qiskit parser can exhaust stack space and cause a segmentation
+    fault, resulting in denial of service.
+  affected: IBM Qiskit SDK 0.43.0 through 2.5.0
+  status: Published advisory
+  published: "2026-06-12"
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-4870
+  score: 7.5
+  cvss_version: "3.1"
+  score_source: ibm
+- id: CVE-2026-26206
+  title: API brute-force protection bypass via authentication race condition
+  vendor: Wazuh
+  product: Wazuh (server API)
+  severity: Medium
+  year: 2026
+  url: https://github.com/wazuh/wazuh/security/advisories/GHSA-m2mr-xhhv-jx58
+  writeup: ""
+  summary:
+    Concurrent authentication requests race the failed-login tracking logic, allowing more password
+    guesses than the configured limit.
+  affected: Wazuh 4.0.0 through versions before 4.14.4
+  fixed_in: Wazuh 4.14.4
+  status: Fixed
+  published: "2026-04-29"
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-26206
+  score: 6.5
+  cvss_version: "3.1"
+  score_source: GitHub_M
+- id: CVE-2026-28221
+  title: Pre-auth stack buffer overflow in wazuh-remoted print_hex_string()
+  vendor: Wazuh
+  product: Wazuh (wazuh-remoted)
+  severity: Medium
+  year: 2026
+  url: https://github.com/wazuh/wazuh/security/advisories/GHSA-q9vv-7w4c-f4cm
+  writeup: ""
+  summary:
+    Signed-char promotion expands diagnostic hex output beyond a fixed stack buffer before agent
+    authentication. The same path also permits log amplification.
+  affected: Wazuh 4.8.0 through versions before 4.14.4
+  fixed_in: Wazuh 4.14.4
+  status: Fixed
+  published: "2026-04-29"
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-28221
+  score: 6.5
+  cvss_version: "3.1"
+  score_source: GitHub_M
+- id: CVE-2026-27199
+  title: safe_join() accepts Windows device names, hanging send_from_directory
+  vendor: Werkzeug
+  product: Werkzeug (safe_join)
+  severity: Medium
+  year: 2026
+  url: https://github.com/pallets/werkzeug/security/advisories/GHSA-29vq-49wr-vm6x
+  writeup: ""
+  summary:
+    Windows device names preceded by path segments pass safe_join checks. Applications serving
+    those paths can hang indefinitely while reading the device.
+  affected: Werkzeug before 3.1.6 on Windows
+  fixed_in: Werkzeug 3.1.6
+  status: Fixed
+  published: "2026-02-21"
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-27199
+  score: 6.3
+  cvss_version: "4.0"
+  score_source: GitHub_M
+- id: CVE-2026-56858
+  title: Wrong JavaScript regexp context tracking in html/template allows XSS
+  vendor: Google
+  product: Go standard library (html/template)
+  severity: Medium
+  year: 2026
+  url: https://pkg.go.dev/vuln/GO-2026-6091
+  writeup: ""
+  summary:
+    Incorrect JavaScript regexp context tracking lets attacker-controlled template data escape
+    a regexp literal and inject script.
+  affected: Go before 1.25.13; Go 1.26 before 1.26.6; Go 1.27 prereleases before 1.27.0-rc.3
+  fixed_in: Go 1.25.13, 1.26.6, 1.27.0-rc.3
+  status: Fixed
+  featured: true
+  published: "2026-08-13"
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-56858
+  score: 6.1
+  cvss_version: "3.1"
+  score_source: CISA-ADP
+- id: CVE-2026-13769
+  title: World-readable credential files written by several AWS CLI subcommands
+  vendor: AWS
+  product: AWS CLI (v1 and v2)
+  severity: Medium
+  year: 2026
+  url: https://aws.amazon.com/security/security-bulletins/2026-049-aws/
+  writeup: ""
+  summary:
+    Certain CLI commands write credential files with permissions inherited from a permissive umask,
+    allowing other local users to read them.
+  affected: AWS CLI v1 before 1.44.78; v2 before 2.34.29 on Unix-like systems with a permissive umask
+  fixed_in: AWS CLI 1.44.78 (v1), 2.34.29 (v2)
+  status: Fixed
+  published: "2026-07-01"
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-13769
+  score: 5.5
+  cvss_version: "3.1"
+  score_source: AMZN
+- id: CVE-2026-78231
+  title: Blind SSRF through OpenID assertion verification
+  vendor: Gitea
+  product: Gitea OpenID sign-in
+  severity: Medium
+  year: 2026
+  url: https://github.com/go-gitea/gitea/security/advisories/GHSA-8vmh-w35x-73qr
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-78231
+  writeup: ""
+  summary:
+    When OpenID sign-in is enabled, unauthenticated assertion parameters control the verification
+    POST destination and much of its form body. Reachable internal services determine the impact.
+  affected: Gitea through 1.26.4 with OpenID sign-in enabled
+  status: Published advisory
+  score: 5.3
+  cvss_version: "3.1"
+  score_source: CISA-ADP
+  published: "2026-10-14"
+- id: CVE-2026-23603
+  title: Blind SSRF in OAuth2 avatar sync via an unvalidated OIDC picture claim
+  vendor: Gitea
+  product: Gitea (OAuth2 avatar synchronization)
+  severity: Low
+  year: 2026
+  url: https://github.com/go-gitea/gitea/security/advisories/GHSA-x77v-q46j-393g
+  writeup: ""
+  summary:
+    An unvalidated OIDC picture claim controls the avatar-fetch destination during OAuth2 synchronization,
+    allowing blind server-side requests.
+  affected: Gitea through 1.26.4
+  fixed_in: Gitea 1.27.0
+  status: Fixed
+  published: "2026-08-13"
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-23603
+  score: 3.1
+  cvss_version: "3.1"
+  score_source: CISA-ADP
+- id: CVE-2026-78665
+  title: URI name constraints incorrectly allow subdomain matches
+  vendor: Google
+  product: Go standard library (crypto/x509)
   severity: ""
   year: 2026
-  url: "https://github.com/golang/go/issues/80435"
+  url: https://github.com/golang/go/issues/81285
   writeup: ""
-
-- id: "CVE-2026-30893"
-  title: "Path traversal in cluster sync allows arbitrary file write and code execution"
-  vendor: "Wazuh"
-  product: "Wazuh (cluster sync, decompress_files)"
-  severity: "Critical"
-  year: 2026
-  url: "https://www.cve.org/CVERecord?id=CVE-2026-30893"
-  writeup: ""
-
-- id: "CVE-2026-28220"
-  title: "Cluster DAPI deserializes attacker-chosen callables and accepts an injected RBAC context"
-  vendor: "Wazuh"
-  product: "Wazuh (cluster Distributed API)"
-  severity: "High"
-  year: 2026
-  url: "https://www.cve.org/CVERecord?id=CVE-2026-28220"
-  writeup: ""
-
-- id: "CVE-2026-63660"
-  title: "Integer overflow in RenderSDF() allows a heap out-of-bounds write via a crafted font"
-  vendor: "Mapbox"
-  product: "node-fontnik (RenderSDF), fixed in 0.7.7"
-  severity: "High"
-  year: 2026
-  url: "https://github.com/mapbox/node-fontnik/security/advisories/GHSA-cfm6-c7rv-58xj"
-  writeup: ""
-
-- id: "CVE-2026-4870"
-  title: "Uncontrolled recursion in the Qiskit OpenQASM 2 parser (denial of service)"
-  vendor: "IBM"
-  product: "IBM Qiskit SDK (qasm2 parser)"
-  severity: "High"
-  year: 2026
-  url: "https://www.cve.org/CVERecord?id=CVE-2026-4870"
-  writeup: ""
-
-- id: "CVE-2026-26206"
-  title: "API brute-force protection bypass via authentication race condition"
-  vendor: "Wazuh"
-  product: "Wazuh (server API)"
-  severity: "Medium"
-  year: 2026
-  url: "https://www.cve.org/CVERecord?id=CVE-2026-26206"
-  writeup: ""
-
-- id: "CVE-2026-28221"
-  title: "Pre-auth stack buffer overflow in wazuh-remoted print_hex_string()"
-  vendor: "Wazuh"
-  product: "Wazuh (wazuh-remoted)"
-  severity: "Medium"
-  year: 2026
-  url: "https://www.cve.org/CVERecord?id=CVE-2026-28221"
-  writeup: ""
-
-- id: "CVE-2026-27199"
-  title: "safe_join() accepts Windows device names, hanging send_from_directory"
-  vendor: "Werkzeug"
-  product: "Werkzeug (safe_join)"
-  severity: "Medium"
-  year: 2026
-  url: "https://www.cve.org/CVERecord?id=CVE-2026-27199"
-  writeup: ""
-
-- id: "CVE-2026-13769"
-  title: "World-readable credential files written by several AWS CLI subcommands"
-  vendor: "AWS"
-  product: "AWS CLI (v1 and v2)"
-  severity: "Medium"
-  year: 2026
-  url: "https://www.cve.org/CVERecord?id=CVE-2026-13769"
-  writeup: ""
-
-- id: "CVE-2026-23603"
-  title: "Blind SSRF in OAuth2 avatar sync via an unvalidated OIDC picture claim"
-  vendor: "Gitea"
-  product: "Gitea (OAuth2 avatar synchronization)"
-  severity: "Low"
-  year: 2026
-  url: "https://github.com/go-gitea/gitea/security/advisories/GHSA-x77v-q46j-393g"
-  writeup: ""
+  summary:
+    URI name constraints are treated like DNS constraints, allowing subtree matches where an exact
+    host match is required. Go publicly credits Ali Sherif in the assigned-CVE issue.
+  status: Public-track issue
+  published: "2026-09-01"

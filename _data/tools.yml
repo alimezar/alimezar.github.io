@@ -1,0 +1,12 @@
+# Published bug hunting and offensive security projects.
+# Add entries here when a project is ready to feature. The /tooling/ page renders
+# them automatically. An empty list intentionally shows the introductory state.
+#
+# - name: "Project name"
+#   description: "What the tool does."
+#   url: "https://github.com/alimezar/repository"
+#   language: "Python"
+#   status: "Released"
+#   tags: [recon, automation]
+#   docs: "https://github.com/alimezar/repository#readme"
+[]

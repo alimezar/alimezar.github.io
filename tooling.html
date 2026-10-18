@@ -1,0 +1,28 @@
+---
+layout: page
+title: "Tooling"
+subtitle: "Bug hunting & offensive security."
+permalink: /tooling/
+description: "Bug hunting and offensive security tools by Ali Sherif. GitHub projects, documentation, and releases."
+wide: true
+---
+<div class="page-intro"><p>Practical tools for vulnerability research and offensive security. This is where I will share my GitHub projects, with source code and documentation.</p></div>
+{% if site.data.tools and site.data.tools.size > 0 %}
+<div class="tool-grid">
+{% for tool in site.data.tools %}
+<article class="tool-card">
+  <div class="card-meta">{% if tool.language %}<span>{{ tool.language }}</span>{% endif %}{% if tool.status %}<span class="badge status">{{ tool.status }}</span>{% endif %}</div>
+  <h2>{{ tool.name }}</h2><p>{{ tool.description }}</p>
+  {% if tool.tags %}<div class="card-tags">{% for tag in tool.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>{% endif %}
+  <div class="detail-links"><a class="text-link" href="{{ tool.url }}" target="_blank" rel="noopener">Source on GitHub ↗<span class="sr-only"> (opens in a new tab)</span></a>{% if tool.docs %}<a class="text-link" href="{{ tool.docs }}" target="_blank" rel="noopener">Documentation ↗<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}</div>
+</article>
+{% endfor %}
+</div>
+{% else %}
+<section class="empty-state">
+  <span class="empty-symbol" aria-hidden="true">[ / ]</span>
+  <p class="eyebrow">The workbench</p><h2>A space for what comes next.</h2>
+  <p>New bug hunting and offensive security projects will appear here as they are published.</p>
+  <a class="btn secondary" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">Visit my GitHub ↗<span class="sr-only"> (opens in a new tab)</span></a>
+</section>
+{% endif %}

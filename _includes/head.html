@@ -1,20 +1,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0e14">
-
-  {%- comment -%} SEO, canonical, OpenGraph/Twitter cards, JSON-LD {%- endcomment -%}
+  <meta name="theme-color" content="#f6f4ef">
   {% seo %}
-
-  {%- comment -%} RSS feed autodiscovery {%- endcomment -%}
   {%- feed_meta -%}
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap">
-
-  {%- comment -%} ?v= busts the browser cache on every build, GitHub Pages serves CSS with max-age=600 {%- endcomment -%}
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
 </head>
+
