@@ -1,17 +1,11 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
+    <div><a class="footer-name" href="{{ '/' | relative_url }}">{{ site.title }}</a><p>Application security. Independent research.</p></div>
     <div class="footer-links">
-      {%- if site.github_username -%}
-      <a href="https://github.com/{{ site.github_username }}" rel="me noopener" target="_blank">github</a>
-      {%- endif -%}
-      {%- if site.email -%}
-      <a href="mailto:{{ site.email }}">email</a>
-      {%- endif -%}
-      <a href="{{ '/feed.xml' | relative_url }}">rss</a>
-    </div>
-    <div class="footer-meta">
-      <span class="muted">// {{ site.title }} &middot; security research</span>
-      <span class="muted">built with jekyll, hosted on github pages</span>
+      <a href="https://github.com/{{ site.github_username }}" rel="me noopener" target="_blank">GitHub ↗<span class="sr-only"> (opens in a new tab)</span></a>
+      <a href="mailto:{{ site.email }}">Email ↗</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </div>
   </div>
 </footer>
+

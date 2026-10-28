@@ -3,7 +3,7 @@ title: "Ali Sherif"
 tagline: "Security Engineer & Vulnerability Researcher"
 description: >-
   Security research, vulnerability writeups, and CVE disclosures by Ali Sherif,
-  Security Engineer at IBM. Bug bounty work across cloud services, web
+  Application Security Engineer at noon. Bug bounty work across cloud services, web
   applications, and open source infrastructure.
 author: "Ali Sherif"
 # Public contact and profiles. Edit or remove as you like.
@@ -17,7 +17,7 @@ github_username: "alimezar"
 url: "https://alimezar.github.io"
 baseurl: ""
 permalink: /research/:title/
-timezone: Asia/Riyadh
+timezone: Africa/Cairo
 
 # --- Markdown / Highlighting ---
 markdown: kramdown
@@ -50,7 +50,7 @@ defaults:
 
 # --- Stats shown on the home page (edit freely) ---
 stats:
-  cves: "10"
+  cves: "16"
   halls_of_fame: "7"
   ctf_wins: "1st"
 
@@ -62,3 +62,4 @@ exclude:
   - README.md
   - .gitignore
   - "*.gemspec"
+

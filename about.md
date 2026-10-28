@@ -1,51 +1,40 @@
 ---
 layout: page
 title: "About"
-subtitle: "Who I am and what I work on."
+subtitle: "Security engineering, with a researcher's curiosity."
 permalink: /about/
-description: "Ali Sherif, Security Engineer at IBM and vulnerability researcher."
+description: "Ali Sherif, Application Security Engineer at noon and independent vulnerability researcher."
 ---
+I am **Ali Sherif**, an **Application Security Engineer at noon** and an independent vulnerability researcher based in Cairo, Egypt.
 
-I am **Ali Sherif**, a Security Engineer at **IBM** and an independent vulnerability
-researcher. I look for the places where software trusts input it has no business
-trusting, then write the finding up so the root cause is clear, not just the diff that
-fixed it.
+At noon, I review source code and assess applications and APIs, collaborate with developers on remediation, verify fixes, and contribute vulnerability fixes through pull requests. I also build AI-assisted security tooling and work on an agentic offensive security workflow.
 
-I do not have one favorite bug class. My reports range from a blind SSRF in an OAuth
-avatar fetch to a stack overflow caused by a signed char, and the only thing they
-really have in common is someone deciding a value was safe before checking.
+My independent research looks at the assumptions behind security boundaries: how input moves through a parser, how an application decides who can act, and what happens when a check and the code it protects disagree.
 
 ## What I work on
 
-- **Web and application security**: SSRF, path traversal, authentication and
-  authorization logic, and the assumptions that hold up fine until someone sends two
-  requests at the same time.
-- **Cloud and infrastructure**: distributed agents, cluster protocols, and the CLI
-  tooling that quietly writes your credentials to disk.
-- **Parsers, deserialization, and memory safety**: binary formats, verifiers, and the
-  gap between what a check promises and what the generated code actually does.
-- **Bug bounty and coordinated disclosure**: reporting through vendor programs and
-  staying with it until a fix actually ships.
-- **CTF and HackTheBox**: keeping the offensive side sharp on a regular basis.
+- **Application security:** authentication, authorization, web and API assessments, and secure code review.
+- **Vulnerability research:** parsers, deserialization, memory safety, and network protocols.
+- **Security tooling:** practical automation for bug hunting and offensive security.
+- **Coordinated disclosure:** reproducible reports, clear root-cause analysis, and collaboration on fixes.
 
-## Track record
+## Research & recognition
 
-- **10 assigned CVEs** across Google, AWS, IBM, Mapbox, Wazuh, Werkzeug and Gitea,
-  including an XSS in Go's `html/template` and a critical path traversal to code
-  execution in Wazuh's cluster sync.
-- **Hall of Fame recognition** from Google, Apple, AWS, Cloudflare, IBM, BlackBerry
-  and Mapbox.
-- A **merged security fix in Google FlatBuffers** (Swift runtime). The writeup is
-  written, it is just not public yet.
+- **{{ site.stats.cves }} CVE-assigned vulnerabilities**, with public sources on the [CVEs page]({{ '/cves/' | relative_url }}).
+- **Recognition from Google, Apple, AWS, Cloudflare, IBM, BlackBerry, and Mapbox.**
+- A **merged security fix and regression test in Google FlatBuffers**, [Swift runtime](https://github.com/google/flatbuffers/pull/9081).
 - **First place at ICMTC CTF 2026** and **second place at ICMTC CTF 2025**.
-- Active on **HackTheBox**, solving machines on an ongoing basis.
 
-See the [CVEs](/cves/) and [Hall of Fame](/hall-of-fame/) pages for the breakdown,
-and [research](/research/) for technical writeups (coming soon).
+Explore my [public research]({{ '/research/' | relative_url }}), [vendor recognition]({{ '/hall-of-fame/' | relative_url }}), and [tooling]({{ '/tooling/' | relative_url }}).
 
-## Contact
+## Background
 
-The best way to reach me about a security issue, a finding, or collaboration:
+Before noon, I worked in infrastructure security at **IBM**. I graduated from the **German International University** in **August 2026**, with a B.Sc. in Computer Science, majoring in IT Security.
 
-- GitHub: [@alimezar](https://github.com/alimezar)
-- Email: [ali.mezar@gmail.com](mailto:ali.mezar@gmail.com)
+## Get in touch
+
+For security research, tooling, and collaboration:
+
+- [ali.mezar@gmail.com](mailto:ali.mezar@gmail.com)
+- [GitHub / alimezar](https://github.com/alimezar)
+
