@@ -1,4 +1,6 @@
 # Publicly attributable CVEs. The assignment total lives in _config.yml.
+# CVE-2026-97045 added 2026-10-28 from the Go advisory GO-2026-6866 and CNA record.
+# No CVSS rating was present in its published record at the time of this update.
 # Reviewed 2026-10-18 against CVEProject/cvelistV5 CNA/ADP records and vendor
 # advisories. CVE-2026-78665 is sourced from golang/go#81285; a CVE record,
 # release version, and rating were not available, so those details are omitted.
@@ -246,3 +248,20 @@
     host match is required. Go publicly credits Ali Sherif in the assigned-CVE issue.
   status: Public-track issue
   published: "2026-09-01"
+- id: CVE-2026-97045
+  title: Incomplete ancestor namespace checks in HTML raw-text rendering
+  vendor: Google
+  product: golang.org/x/net/html (Render)
+  severity: ""
+  year: 2026
+  url: https://pkg.go.dev/vuln/GO-2026-6866
+  record_url: https://www.cve.org/CVERecord?id=CVE-2026-97045
+  writeup: ""
+  summary:
+    Incomplete ancestor namespace checks can cause rendered raw text to be reparsed in a
+    different foreign namespace, creating a cross-site scripting risk. The fix checks the
+    full ancestor chain before emitting literal text.
+  affected: golang.org/x/net/html before v0.62.0
+  fixed_in: golang.org/x/net v0.62.0
+  status: Fixed
+  published: "2026-10-27"
